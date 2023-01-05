@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+<style>
+form{
+    margin:2rem 0;
+}
+
+</style>
+<div class="container">
+    <h1 class="h3 mb-3 font-weight-normal td-fade-in">Connectez-Vous</h1>
+    <form class ="col s12" method="post">
+        {% if error %}
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
+        {% if app.user %}
+            <div class="mb-3">
+                Vous êtes connecté en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}"> Se déconnecter</a>
+            </div>
+        {% endif %}
+        <div class="row">
+            <div class="input-field col s12 m6">
+                <label for="icon_prefix">Pseudonyme</label>
+                <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control validate" autocomplete="username" required autofocus>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 m6">
+                <label for="icon_telephone">Mot de passe</label>
+                <input type="password" name="password" id="inputPassword" class="form-control validate" autocomplete="current-password" required>
+            </div>
+        </div>
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" >
+        {#
+            Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+            See https://symfony.com/doc/current/security/remember_me.html
+
+            <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" name="_remember_me"> Remember me
+                </label>
+            </div>
+        #}
+        <div class="row">
+            <button class="btn btn-lg btn-primary td-fade-in" type="submit"> Se connecter</button>
+        </div>
+        
+        <div class="row">
+            <a class="td-fade-right mrg" href="{{ path('app_register')}}">Vous n'avez pas de compte ? Créez en un !</a>
+        </div>
+    </form>
+
+    
+
+</div>
+{% endblock %}

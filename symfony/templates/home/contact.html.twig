@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+<style>
+
+form {
+    width:80%;
+    margin-right:2rem;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:space-around;
+}
+.input-field{
+    width:90% !important;
+}
+</style>
+<script>
+      $('#textarea1').val('New Text');
+  M.textareaAutoResize($('#textarea1'));
+</script>
+<div class="td-container-sided-rv">
+    <div>
+        <img class="td-fade-bottom" src="{{ asset('images/palombebackground.jpg')}}">
+    </div>
+    <div>
+        <h1 class="h3 mb-3 font-weight-normal td-fade-in">Contactez-moi</h1>
+        <form action="https://formsubmit.co/mathias.duprat@live.com" method="POST" enctype="multipart/form-data">
+            <div class="input-field">
+                <input id="text" type="text"  name="Nom" class="validate">
+                <label for="Nom">Nom</label>
+            </div>
+            <div class="input-field">
+                <input id="text" type="text"  name="Prenom" class="validate">
+                <label for="Prenom">Prénom</label>
+            </div>
+            <div class="input-field">
+                <textarea id="textarea1" class="materialize-textarea" name="Message"></textarea>
+                <label for="textarea1">Message</label>
+            </div>
+            <button class="btn waves-effect waves-light td-fade-in" type="submit" name="action">Envoyez
+                <i class="material-icons right">send</i>
+            </button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

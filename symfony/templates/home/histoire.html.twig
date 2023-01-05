@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+<style>
+    body{
+        background-color:white ;
+    }
+    p{
+        text-align:center;
+    }
+    .content-p{
+        width:70%;
+    }
+    .title{
+        font-size:3.5rem;
+    }
+
+    .mrg{
+        margin:6rem 0;
+    }
+</style>
+
+
+<div class="container">
+
+<div class="mrg">
+    <h1 class="title">La Palombe</h1>
+    <hr></hr>
+</div>
+
+<div class="td-container-sided mrg">
+        <div class="td-fade-up">
+            <img src="{{ asset('images/palombe.jpg')}}">
+        </div>
+        <div class="td-fade-up">
+            <h1> Lorem</h1>
+            <p class="content-p">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean 
+                quis purus feugiat, rhoncus lacus id, dictum turpis. Ut ut felis libero. I
+                nteger lacinia risus et ex luctus, eget ornare ante imperdiet. Duis eu accumsan ex, vitae interdum quam. 
+                Aliquam vel maximus lorem. Maecenas tortor erat, viverra quis massa ac, t
+            </p>
+        </div>
+</div>
+
+<div class="td-container-sided-rv mrg">
+    <div class="td-fade-bottom">
+        <h1> Lorem</h1>
+        <p class="content-p">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean 
+            quis purus feugiat, rhoncus lacus id, dictum turpis. Ut ut felis libero. I
+            nteger lacinia risus et ex luctus, eget ornare ante imperdiet. Duis eu accumsan ex, vitae interdum quam. 
+            Aliquam vel maximus lorem. Maecenas tortor erat, viverra quis massa ac, t
+        </p>    
+    </div>
+    <div class="td-fade-bottom">
+        <img src="{{ asset('images/palombeVol.jpg')}}">
+    </div>
+</div>
+
+<div class="mrg">
+    <h1 class="title"> La Palombière </h1>
+    <hr></hr>
+</div>
+
+<div class="td-container-sided mrg">
+        <div class="td-fade-up">
+            <img src="{{ asset('images/cabane.jpg')}}">
+        </div>
+        <div class="td-fade-up">
+            <h1> Lorem</h1>
+            <p class="content-p">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean 
+                quis purus feugiat, rhoncus lacus id, dictum turpis. Ut ut felis libero. I
+                nteger lacinia risus et ex luctus, eget ornare ante imperdiet. Duis eu accumsan ex, vitae interdum quam. 
+                Aliquam vel maximus lorem. Maecenas tortor erat, viverra quis massa ac, t
+            </p>
+        </div>
+</div>
+
+<div class="td-container-sided-rv mrg">
+    <div class="td-fade-bottom">
+        <h1> Lorem</h1>
+        <p class="content-p">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean 
+            quis purus feugiat, rhoncus lacus id, dictum turpis. Ut ut felis libero. I
+            nteger lacinia risus et ex luctus, eget ornare ante imperdiet. Duis eu accumsan ex, vitae interdum quam. 
+            Aliquam vel maximus lorem. Maecenas tortor erat, viverra quis massa ac, t
+        </p>    
+    </div>
+    <div class="td-fade-bottom">
+        <img src="{{ asset('images/sol.png')}}">
+    </div>
+</div>
+</div>
+{% endblock %}

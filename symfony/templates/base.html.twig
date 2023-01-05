@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@0.5.3/dist/css/axentix.min.css">
+        <!-- Compiled and minified CSS -->
+        {% block stylesheets %}
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+            <link rel="stylesheet" href="{{asset('Treedot/Treedot.css')}}">
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        {% endblock %}
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <style>
+        .link{
+            font-size:1.1rem;
+            margin:0 1rem;
+        }
+        .brand-logo{
+            margin:0 4rem;
+        }
+        .brand-logo>img{
+            width:90%;
+        }
+        body{
+          display: flex;
+          min-height: 100vh;
+          flex-direction: column;
+          overflow-x:hidden;
+        }
+
+        main {
+          flex: 1 0 auto;
+        }
+    </style>
+    <script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.sidenav');
+        var instances = M.Sidenav.init(elems, {});
+    });
+    </script>
+
+    <body>
+        <header>
+          <nav>
+            <div class="nav-wrapper blue-grey darken-4">
+              <a href="{{ path('app_home')}}" class="td-fade-left brand-logo"><img  src="{{ asset('images/logo.png')}}"></a>
+              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+
+              <ul class="right hide-on-med-and-down">
+                {% if not is_granted('IS_AUTHENTICATED_FULLY')%}
+                  <li><a class="td-fade-right link" href="{{ path('app_login')}}">Se connecter</a></li>
+                {% endif %}
+                <li><a class="td-fade-right link" href="{{ path('app_home')}}">Accueil</a></li>
+                
+
+                {% if is_granted('IS_AUTHENTICATED_FULLY')%}
+                  <li><a class="td-fade-right link" href="{{ path('app_logout')}}">Se Déconnecter</a></li>
+                {% endif %}
+                {% if not is_granted('IS_AUTHENTICATED_FULLY')%}
+                  <li><a class="td-fade-right link" href="{{ path('app_login')}}">Ma palombière</a></li>
+                {% endif %}
+                {% if is_granted('IS_AUTHENTICATED_FULLY')%}
+                  <li><a class="td-fade-right link" href="{{ path('app_palombiere')}}">Ma palombière</a></li>
+                {% endif %}
+                <li><a class="td-fade-right link" href="{{ path('app_histoire')}}">Histoire</a></li>
+                
+              </ul>
+
+            </div>
+          </nav>
+
+          <ul class="sidenav" id="mobile-demo">
+              {% if not is_granted('IS_AUTHENTICATED_FULLY')%}
+                <li><a class="td-fade-right link" href="{{ path('app_login')}}">Se connecter</a></li>
+              {% endif %}
+              <li><a class="td-fade-right link" href="{{ path('app_home')}}">Accueil</a></li>
+
+              {% if is_granted('IS_AUTHENTICATED_FULLY')%}
+                <li><a class="td-fade-right link" href="{{ path('app_logout')}}">Se Déconnecter</a></li>
+              {% endif %}
+              {% if not is_granted('IS_AUTHENTICATED_FULLY')%}
+                <li><a class="td-fade-right link" href="{{ path('app_login')}}">Ma palombière</a></li>
+              {% endif %}
+              {% if is_granted('IS_AUTHENTICATED_FULLY')%}
+                <li><a class="td-fade-right link" href="{{ path('app_palombiere')}}">Ma palombière</a></li>
+              {% endif %}
+              <li><a class="td-fade-right link" href="{{ path('app_histoire')}}">Histoire</a></li>
+          </ul>
+
+        </header>
+
+        <main>
+            {% block body %}{% endblock %}
+        </main>
+
+         <footer class="page-footer blue-grey darken-4">
+          <div class="container">
+            <div class="row">
+              <div class="col l5 s12">
+                <h5 class="white-text">Palombiere.com</h5>
+                <p class=" linkFooter grey-text text-lighten-4">Merci de votre visite sur le site web</p>
+              </div>
+              <div class="col l5 offset-l2 s12">
+                <h5 class="white-text">Liens</h5>
+                <ul>
+                  <li><a class=" linkFooter grey-text text-lighten-3 td-fade-in" href="{{ path('app_contact')}}">Me contacter</a></li>
+                  <li><a class=" linkFooter grey-text text-lighten-3 td-fade-in" href="#!">Mention Legale</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright  blue-grey darken-3">
+            <div class="container">
+            © 2023 Copyright (C'est faux)
+            <a class="grey-text text-lighten-4 right" href="#!">Plus de liens</a>
+            </div>
+          </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/axentix@0.5.3/dist/js/axentix.min.js"></script>
+        {% block javascripts %}{% endblock %}
+    </body>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{{asset('Treedot/Treedot.js')}}"> </script>
+
+</html>
